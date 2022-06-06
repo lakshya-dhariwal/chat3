@@ -77,17 +77,16 @@ transition sendMsg (msg : String, sendTo: ByStr20)
   };
   event e
 end
- 
-transition recvMsg (message:String)
-  (* Transition body *)
- recent_chat_msg = message;
- recent_chat_sender = _sender;
- e = {
-   _eventName:"recvMsg";
-   sender:_sender; 
-   message:message;
+
+transition recvMsg (message: String)
+  recent_chat_mssg := message;
+  recent_chat_sender := _sender;
+  e = {
+      _eventname: "recMsg";
+      sender: _sender;
+      message: message
   };
-   event e
+  event e
 end
  
 
