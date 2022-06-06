@@ -10,7 +10,7 @@ scilla_version 0
  
 library Chat3
  let zero = Uint128 0 (*unsigned int of 128 bits *)
- 
+ let zero_address= 0x0000000000000000000000000000000000000000
  
  
 (* Library code block follows *)
@@ -21,17 +21,17 @@ library Chat3
 (*             Contract definition                 *)
 (***************************************************)
  
-contract MyContract
+contract Chat3
  
 (* Immutable fields declaration *)
  
-(vname_1 : vtype_1,
- vname_2 : vtype_2)
+(contract_owner : ByStr20)
  
 (* Mutable fields declaration *)
  
-field vname_1 : vtype_1 = init_val_1
-field vname_2 : vtype_2 = init_val_2
+field recent_chat_mssg : String = ""
+field recent_chat_sender : ByStr20 = zero_address
+
  
 (* Transitions *)
  
