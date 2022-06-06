@@ -7,4 +7,3 @@ Recieved Message
 ![img](/demo/4.png)
 
 Built with Zilliqa Blockchain
-![img](/demo/1.png)
