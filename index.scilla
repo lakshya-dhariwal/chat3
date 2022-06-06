@@ -25,12 +25,31 @@ contract Chat3
  
 (* Immutable fields declaration *)
  
-(contract_owner : ByStr20)
+(contract_owner : ByStr20) (*type byte string 20 *)
  
 (* Mutable fields declaration *)
  
 field recent_chat_mssg : String = ""
 field recent_chat_sender : ByStr20 = zero_address
+field initial_contract_owner : ByStr20 = contract_owner
+
+procedure isOwner()
+(* statements go below *)
+    current_owner <- initial_contract_owner ;
+    is_owner = builtin eq current_owner _sender ;
+    match is_owner with
+        | True =>
+        (*statements for true*)
+        
+        | False =>
+         (*statements for False*)
+         err = {
+             _exception: "NotOwnerUnauthorizedError"
+         };
+         throw err
+     end
+    
+end
 
  
 (* Transitions *)
