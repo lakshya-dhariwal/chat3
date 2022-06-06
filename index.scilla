@@ -11,7 +11,11 @@ scilla_version 0
 library Chat3
  let zero = Uint128 0 (*unsigned int of 128 bits *)
  let zero_address= 0x0000000000000000000000000000000000000000
- 
+ (* constructor *)
+ let one_msg = 
+  fun (msg: Message) => 
+    let nil_msg = Nil {Message} in
+    Cons {Message} msg nil_msg
  
 (* Library code block follows *)
  
@@ -72,10 +76,5 @@ transition sendMsg (msg : String, sendTo: ByStr20)
       message: msg
   };
   event e
-end
- 
-transition secondTransition (param_1: type_1)
-  (* Transition body *)
- 
 end
  
