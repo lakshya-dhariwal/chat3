@@ -86,7 +86,7 @@ transition recvMsg (message:String)
    _eventName:"recvMsg";
    sender:_sender; 
    message:message;
-  }
+  };
    event e
 end
  
