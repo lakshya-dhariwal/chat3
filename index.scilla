@@ -56,9 +56,22 @@ end
  
  
 (* Transition signature *)
-transition firstTransition (param_1 : type_1, param_2 : type_2)
-  (* Transition body *)
- 
+transition sendMsg (msg : String, sendTo: ByStr20)
+  isOwner;
+  message = {
+      _tag: "recvMsg";
+      _recipient: sendTo;
+      _amount: zero;
+      message: msg
+  };
+  msg_to_sender = one_msg message;
+  send msg_to_sender;
+  e = {
+      _eventname: "sendMsg";
+      sendTo: sendTo;
+      message: msg
+  };
+  event e
 end
  
 transition secondTransition (param_1: type_1)
